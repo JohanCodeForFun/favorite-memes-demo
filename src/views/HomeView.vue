@@ -1,8 +1,10 @@
 <script setup lang="ts">
   import { useMemeStore } from "../stores/memeStore";
+  import { useFavoriteStore } from "@/stores/favoriteStore";
   import { ref } from "vue";
 
   const memeStore = useMemeStore();
+  const favoriteStore = useFavoriteStore();
   let index = ref(0);
 
   memeStore.fetchMemes();
@@ -18,7 +20,7 @@
     </div>
     <div>
       <button @click="index--">Previous</button>
-      <button>Save meme</button>
+      <button @click="favoriteStore.addFavorite(memeStore.memes[index])">Save meme</button>
       <button @click="index++">Next</button>
     </div>
   </main>

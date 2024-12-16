@@ -1,12 +1,14 @@
 <script setup lang="ts">
   import { RouterLink, RouterView } from "vue-router";
+  import { useFavoriteStore } from "./stores/favoriteStore";
+  const favoriteStore = useFavoriteStore();
 </script>
 
 <template>
   <header>
     <nav>
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/favorites">Favorites (0)</RouterLink>
+      <RouterLink to="/favorites">Favorites ({{ favoriteStore.count }})</RouterLink>
     </nav>
   </header>
 
