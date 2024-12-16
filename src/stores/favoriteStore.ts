@@ -14,11 +14,16 @@ export const useFavoriteStore = defineStore('favoriteStore', () => {
     favorite.value.push(meme)
   }
 
+  const removeFavorite = (id: string) => {
+    favorite.value = favorite.value.filter(fav => fav.id !== id)
+  }
+
   const count = computed(() => {
     return favorite.value.length
   });
 
   return { 
+    removeFavorite,
     addFavorite,
     favorite,
     count,
