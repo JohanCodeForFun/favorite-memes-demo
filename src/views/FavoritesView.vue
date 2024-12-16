@@ -2,6 +2,6 @@
 
 <template>
   <main>
-    <h1>Home for Favorite Memes</h1>
+    <h1>Favorite Memes</h1>
   </main>
 </template>
