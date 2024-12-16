@@ -1,8 +1,14 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
+type Meme = {
+  id: string;
+  name: string;
+  url: string;
+}
+
 export const useMemeStore = defineStore('memeStore', () => {
-  let memes = ref([]);
+  let memes = ref<Meme[]>([]);
   let loading = ref(false);
 
   

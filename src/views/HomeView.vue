@@ -11,11 +11,10 @@
 <template>
   <main>
     <h1>Home for Favorite Memes</h1>
-    <p>{{ memeStore.count }}</p>
-    <p>Index: {{ index }}</p>
     <br>
     <div>
-      {{ memeStore.memes[index] }}
+      <h2>{{ memeStore.memes[index].name }}</h2>
+      <img :src="memeStore.memes[index].url" :alt="memeStore.memes[index].name">
     </div>
     <div>
       <button @click="index--">Previous</button>
@@ -24,3 +23,11 @@
     </div>
   </main>
 </template>
+
+<style scoped>
+img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+}
+</style>
