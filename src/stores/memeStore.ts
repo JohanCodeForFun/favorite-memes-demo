@@ -24,8 +24,6 @@ export const useMemeStore = defineStore('memeStore', () => {
       const response = await fetch("https://api.imgflip.com/get_memes");
       const data = await response.json();
 
-      console.log(data)
-
       memes.value = data.data?.memes;
     } catch (error) {
       console.error("Error fetching memes:", error);

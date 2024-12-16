@@ -6,7 +6,7 @@ const favoriteStore = useFavoriteStore();
 <template>
   <main>
     <h1>Favorite Memes</h1>
-    <button>Remove all favorites</button>
+    <button @click="favoriteStore.$reset()">Remove all favorites</button>
     <div v-if="favoriteStore.count === 0">
       <p>No favorites yet!</p>
       <p>Add some :)</p>

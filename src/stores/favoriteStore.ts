@@ -11,7 +11,14 @@ export const useFavoriteStore = defineStore('favoriteStore', () => {
   let favorite = ref<Meme[]>([]);
 
   const addFavorite = (meme: Meme) => {
-    favorite.value.push(meme)
+    const exists = favorite.value.find(fav => fav.id === meme.id)
+    if (!exists) {
+      favorite.value.push(meme)
+    }
+  }
+
+  const $reset = () => {
+    favorite.value = [];
   }
 
   const removeFavorite = (id: string) => {
@@ -26,6 +33,7 @@ export const useFavoriteStore = defineStore('favoriteStore', () => {
     removeFavorite,
     addFavorite,
     favorite,
+    $reset,
     count,
    }
 })
